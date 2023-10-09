@@ -5,16 +5,19 @@ type PdfContextProviderProps = {
   children: React.ReactNode;
 };
 
-type pdf = Uint8Array | null;
+type pdf = Uint8Array | string;
 
 type PdfContext = {
-  file: pdf;
-  setFile: React.Dispatch<React.SetStateAction<pdf>>;
+  fileInfo: fileInfo | null;
+  setFileInfo: React.Dispatch<React.SetStateAction<fileInfo | null>>;
 };
 
 type fileInfo = {
-  file: pdf;
   currentPage?: number;
+  n_page?: number; // pdf total page
+  fileName?: string;
+  file: pdf;
+  // ...
 };
 
 export const PdfContext = createContext<PdfContext | null>(null);
@@ -22,9 +25,12 @@ export const PdfContext = createContext<PdfContext | null>(null);
 export default function PdfContextProvider({
   children,
 }: PdfContextProviderProps) {
-  const [file, setFile] = useState<fileInfo | null>(null);
+  const [fileInfo, setFileInfo] = useState<fileInfo | null>(null);
+
+  // for test
+  // console.log(fileInfo);
   return (
-    <PdfContext.Provider value={{ file, setFile }}>
+    <PdfContext.Provider value={{ fileInfo, setFileInfo }}>
       {children}
     </PdfContext.Provider>
   );

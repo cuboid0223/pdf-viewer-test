@@ -9,14 +9,16 @@ import {
   Typography,
 } from "@material-tailwind/react";
 
-export function Options() {
+type propType = { opts: string[] };
+
+export function Options({ opts }: propType) {
   const OPTIONS = ["A", "B", "C", "D"];
 
   return (
     <>
       <Card className="rounded-md">
         <List>
-          {OPTIONS.map((id, opt) => (
+          {opts.map((opt, id) => (
             <ListItem className="p-0" key={id}>
               <label
                 htmlFor="vertical-list-react"
@@ -35,7 +37,7 @@ export function Options() {
                   />
                 </ListItemPrefix>
                 <Typography color="blue-gray" className="font-medium">
-                  {OPTIONS[opt]}
+                  {`${OPTIONS[id]}.  ${opt}`}
                 </Typography>
               </label>
             </ListItem>

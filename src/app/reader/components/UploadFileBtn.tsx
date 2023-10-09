@@ -9,7 +9,7 @@ import extractTextFromImg from "@/functions/extractTextFromImg";
 
 const UploadFileBtn = () => {
   const FILETYPE = ["application/pdf"];
-  const { file, setFile } = usePdfContext();
+  const { fileInfo, setFileInfo } = usePdfContext();
 
   const handleExtractPdf = async (file: File) => {
     if (!file) return;
@@ -49,7 +49,7 @@ const UploadFileBtn = () => {
     if (isFileValid) {
       // Blob to uint8Array
       const uint8Arr = new Uint8Array(await file.arrayBuffer());
-      setFile(uint8Arr);
+      setFileInfo({ ...fileInfo, file: uint8Arr, fileName: file.name });
     }
   };
 
