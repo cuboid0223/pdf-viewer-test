@@ -22,7 +22,7 @@ export const PdfContext = createContext<PdfContext | null>(null);
 export default function PdfContextProvider({
   children,
 }: PdfContextProviderProps) {
-  const [file, setFile] = useState<pdf>(null);
+  const [file, setFile] = useState<fileInfo | null>(null);
   return (
     <PdfContext.Provider value={{ file, setFile }}>
       {children}
