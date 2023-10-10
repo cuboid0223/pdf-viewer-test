@@ -1,11 +1,7 @@
-"use client";
-import Tesseract from "tesseract.js";
-import { createWorker } from "tesseract.js";
 import { pdfToImg } from "@/functions/pdf-to-img";
 import Image from "next/image";
 import { useState } from "react";
 import { usePdfContext } from "@/app/context/PdfContext";
-import extractTextFromImg from "@/functions/extractTextFromImg";
 
 const UploadFileBtn = () => {
   const FILETYPE = ["application/pdf"];

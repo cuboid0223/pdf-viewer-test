@@ -10,23 +10,21 @@ function page() {
   return (
     <>
       <PdfContextProvider>
-        <div className=" ">
-          <Split
-            className="split h-screen flex justify-center"
-            minSize={100}
-            gutterSize={20}
-            snapOffset={10}
-          >
-            {/* pdf viewer */}
-            <div className="overflow-auto  touch-pan-y">
-              <UploadFileBtn />
-              <Reader />
-            </div>
+        <Split
+          className="split h-screen flex justify-center"
+          minSize={100}
+          gutterSize={20}
+          snapOffset={10}
+        >
+          {/* pdf viewer */}
+          <div className="overflow-auto  touch-pan-y">
+            <UploadFileBtn />
+            <Reader />
+          </div>
 
-            {/* question cards list  */}
-            <QuestionList />
-          </Split>
-        </div>
+          {/* question cards list  */}
+          <QuestionList />
+        </Split>
       </PdfContextProvider>
     </>
   );
