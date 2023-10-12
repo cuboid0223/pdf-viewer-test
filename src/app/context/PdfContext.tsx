@@ -5,7 +5,7 @@ type PdfContextProviderProps = {
   children: React.ReactNode;
 };
 
-type pdf = Uint8Array | string;
+
 
 type PdfContext = {
   fileInfo: fileInfo | null;

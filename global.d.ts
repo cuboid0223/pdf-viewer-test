@@ -4,3 +4,5 @@ type Question = {
   description: string;
   options: string[];
 };
+
+type pdf = Uint8Array | string;

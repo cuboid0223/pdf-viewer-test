@@ -2,6 +2,7 @@ import { pdfToImg } from "@/functions/pdf-to-img";
 import Image from "next/image";
 import { useState } from "react";
 import { usePdfContext } from "@/app/context/PdfContext";
+import { PDF_OCR } from "@/app/actions/PDF_OCR";
 
 const UploadFileBtn = () => {
   const FILETYPE = ["application/pdf"];
@@ -50,9 +51,10 @@ const UploadFileBtn = () => {
   };
 
   return (
-    <div>
+    <form action={() => PDF_OCR()}>
       <input type="file" accept=".pdf" onChange={handleFilePreview} />
-    </div>
+      <button type="submit">test</button>
+    </form>
   );
 };
 
